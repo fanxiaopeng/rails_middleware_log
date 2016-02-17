@@ -1,8 +1,6 @@
 # RailsMiddlewareLog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails_middleware_log`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Print Log for request when every middleware start.
 
 ## Installation
 
@@ -20,9 +18,33 @@ Or install it yourself as:
 
     $ gem install rails_middleware_log
 
+## log
+
+```ruby
+Started GET "/path/of/request" for ::1 at 2016-02-17 10:48:55 +0800
+-------ActionDispatch::ShowExceptions
+-------WebConsole::Middleware
+-------ActionDispatch::DebugExceptions
+-------ActionDispatch::RemoteIp
+-------ActionDispatch::Reloader
+-------ActionDispatch::Callbacks
+-------ActiveRecord::Migration::CheckPending
+  ActiveRecord::SchemaMigration Load (23.0ms)  SELECT "schema_migrations".* FROM "schema_migrations"
+-------ActiveRecord::ConnectionAdapters::ConnectionManagement
+-------ActionDispatch::Cookies
+-------ActionDispatch::Session::CookieStore
+-------ActionDispatch::Flash
+-------ActionDispatch::ParamsParser
+-------Rack::Head
+-------Rack::ConditionalGet
+-------Rack::ETag
+-------Rack::Head
+
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+blank
 
 ## Development
 
