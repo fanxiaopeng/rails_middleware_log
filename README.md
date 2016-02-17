@@ -43,8 +43,29 @@ Started GET "/path/of/request" for ::1 at 2016-02-17 10:48:55 +0800
 ```
 
 ## Usage
+add the following example code to application.rb
+```ruby
+    RailsMiddlewareLog.configure do |config|
+      config.target_urls = ['/coupon/v1/coupon_batches']
+      config.before_middleware = ->(middleware_class, env) do
+        puts middleware_class
+      end
+    end
+```
 
-blank
+1. target_urls： select target request url to log. default: log nothing 
+    - String
+    equal to PATH_INFO
+    - Array
+    contains PATH_INFO
+    - Regexp
+    match PATH_INFO
+2. before_middleware：a lambda with two args, for user to custom.
+    - middleware_class
+    class of current middleware
+    - env
+    one arg of middleware call method
+
 
 ## Development
 
