@@ -11,17 +11,13 @@ module RailsMiddlewareLog
 
   # Global settings
   def self.config
-    @config
+    @config || configure { |config| config }
   end
 
   # need a Class for 3.0
   class Configuration #:nodoc:
     include ActiveSupport::Configurable
-    config_accessor :logger
-  end
-
-  # this is ugly. why can't we pass the default value to config_accessor...?
-  configure do |config|
-    config.logger = 25
+    config_accessor(:target_urls)
+    config_accessor(:before_middleware)
   end
 end

@@ -23,6 +23,7 @@ EOC
 # load components
 require 'rails_middleware_log/config'
 require 'rails_middleware_log/hooks'
+require 'rails_middleware_log/log'
 
 # if not using Railtie, call `RailsMiddlewareLog::Hooks.init` directly
 if defined? Rails
