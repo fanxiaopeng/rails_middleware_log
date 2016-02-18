@@ -1,11 +1,11 @@
 require 'active_support/configurable'
-
+# config file
 module RailsMiddlewareLog
   # Configures global settings
   #   RailsMiddlewareLog.configure do |config|
   #     config.logger = Logger.new
   #   end
-  def self.configure(&block)
+  def self.configure(&_block)
     yield @config ||= RailsMiddlewareLog::Configuration.new
   end
 

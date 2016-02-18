@@ -1,3 +1,4 @@
+# Hook file for app
 module RailsMiddlewareLog
   class Hooks
     def self.init

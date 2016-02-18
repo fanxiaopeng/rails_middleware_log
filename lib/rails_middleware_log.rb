@@ -7,7 +7,7 @@ end
 begin
   require 'rails'
 rescue LoadError
-  #do nothing
+  # do nothing
 end
 
 $stderr.puts <<-EOC if !defined?(Rails)
@@ -26,6 +26,4 @@ require 'rails_middleware_log/hooks'
 require 'rails_middleware_log/log'
 
 # if not using Railtie, call `RailsMiddlewareLog::Hooks.init` directly
-if defined? Rails
-  require 'rails_middleware_log/railtie'
-end
+require 'rails_middleware_log/railtie' if defined?(Rails)

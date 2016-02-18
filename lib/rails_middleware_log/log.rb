@@ -1,3 +1,4 @@
+# log file when processing
 module RailsMiddlewareLog
   class Log
     def init
@@ -5,7 +6,7 @@ module RailsMiddlewareLog
         klass = middleware_class(middleware)
         return unless klass.method_defined? :call
         klass.class_eval do
-          alias :old_call :call
+          alias_method :old_call, :call
 
           def call(env)
             RailsMiddlewareLog::Log.before_call(self.class, env)

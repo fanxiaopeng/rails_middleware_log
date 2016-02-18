@@ -1,0 +1,19 @@
+# This is the configuration used to check the rubocop source code.
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 1.9
+Documentation:
+  Enabled: false
+Style/Encoding:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: when_needed
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 15

@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['fanxiaopeng']
   spec.email         = ['fanxiaopeng515@163.com']
 
-  spec.summary       = %q{log every middleware of rails}
-  spec.description   = %q{log every middleware of rails}
+  spec.summary       = 'log every middleware of rails'
+  spec.description   = 'log every middleware of rails'
   spec.homepage      = 'https://github.com/fanxiaopeng/rails_middleware_log'
   spec.license       = 'MIT'
 
