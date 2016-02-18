@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rails_middleware_log.gemspec
 gemspec
-group :development do
+group :development, :test do
   gem 'rubocop', require: false
+  gem 'rspec'
+  gem 'rails', require: false
 end

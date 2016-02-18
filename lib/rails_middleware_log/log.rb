@@ -1,34 +1,35 @@
 # log file when processing
 module RailsMiddlewareLog
   class Log
-    def init
-      Rails.configuration.middleware.middlewares.each do |middleware|
-        klass = middleware_class(middleware)
-        return unless klass.method_defined? :call
-        klass.class_eval do
-          alias_method :old_call, :call
+    class << self
+      def init(middlewares)
+        middlewares.each do |middleware|
+          klass = middleware_class(middleware)
+          if klass && klass.method_defined?(:call)
+            klass.class_eval do
+              alias_method :old_call, :call
 
-          def call(env)
-            RailsMiddlewareLog::Log.before_call(self.class, env)
-            old_call(env)
+              def call(env)
+                RailsMiddlewareLog::Log.before_call(self.class, env)
+                old_call(env)
+              end
+            end
           end
         end
       end
-    end
 
-    # get the current middleware class
-    def middleware_class(middleware)
-      case middleware.klass
-      when ActiveSupport::Cache::Strategy::LocalCache::Middleware
-        middleware.klass.class
-      when Class
-        middleware.klass
-      else
-        normalize(middleware)
+      # get the current middleware class
+      def middleware_class(middleware)
+        case middleware.klass
+        when ActiveSupport::Cache::Strategy::LocalCache::Middleware
+          middleware.klass.class
+        when Class
+          middleware.klass
+        else
+          nil
+        end
       end
-    end
 
-    class << self
       def before_call(k_class, env)
         if config_url_match?(env['PATH_INFO'])
           if block = RailsMiddlewareLog.config.before_middleware
@@ -55,12 +56,6 @@ module RailsMiddlewareLog
           false
         end
       end
-    end
-
-    private
-
-    def normalize(object)
-      object.to_s.strip.sub(/^::/, '')
     end
   end
 end

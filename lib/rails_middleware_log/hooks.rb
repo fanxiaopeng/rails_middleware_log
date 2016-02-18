@@ -4,7 +4,7 @@ module RailsMiddlewareLog
     def self.init
       return unless RailsMiddlewareLog.config.target_urls
       ActiveSupport.on_load(:after_initialize) do
-        RailsMiddlewareLog::Log.new.init
+        RailsMiddlewareLog::Log.init(Rails.configuration.middleware.middlewares)
       end
     end
   end
