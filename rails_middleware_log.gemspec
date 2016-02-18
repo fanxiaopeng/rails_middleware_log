@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['fanxiaopeng515@163.com']
 
   spec.summary       = 'log every middleware of rails'
-  spec.description   = 'log every middleware of rails, customer request and log format'
+  spec.description   = 'Print Log for request when every middleware start in Rails. You can set which request to log, and the content you want to print.'
   spec.homepage      = 'https://github.com/fanxiaopeng/rails_middleware_log'
   spec.license       = 'MIT'
 

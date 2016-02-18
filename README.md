@@ -1,6 +1,8 @@
 # RailsMiddlewareLog
 
-Print Log for request when every middleware start.
+Print Log for request when every middleware start in Rails. You can set which request to log, and the content you want to print.
+
+在Rails的每个middleware开始的时候打印日志，可以配置那些请求，以及自定义打印内容。
 
 ## Installation
 
