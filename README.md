@@ -54,6 +54,8 @@ add the following example code to application.rb
 ```
 
 1. target_urls： select target request url to log. default: log nothing 
+    - Boolean
+    true will log every request
     - String
     equal to PATH_INFO
     - Array

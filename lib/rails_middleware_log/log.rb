@@ -42,6 +42,8 @@ module RailsMiddlewareLog
       def config_url_match?(url)
         target_urls = RailsMiddlewareLog.config.target_urls
         case target_urls
+        when true
+          true
         when String
           target_urls == url
         when Array
